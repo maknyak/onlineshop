@@ -39,17 +39,33 @@ const UserService = {
 
       throw response.data.data
     } catch (error) {
-      console.log(error.request)
       throw new AuthenticationError(error.status, error.message)
     }
   },
 
-  logout () {
-    TokenService.removeToken()
-    TokenService.removeRefreshToken()
-    ApiService.removeHeader()
+  // logout () {
+  //   TokenService.removeToken()
+  //   ApiService.removeHeader()
 
-    ApiService.unmount401Interceptor()
+  //   ApiService.unmount401Interceptor()
+  // }
+
+  logout: async function () {
+    try {
+      const response = await ApiService.post('/auth/secure/logout')
+      if (response.data.status === 200) {
+        TokenService.removeToken()
+        ApiService.removeHeader()
+        return response.data
+      }
+    } catch (error) {
+      throw new AuthenticationError(error.status, error.message)
+    }
+  },
+
+  forceLogout: function () {
+    TokenService.removeToken()
+    ApiService.removeHeader()
   }
 }
 

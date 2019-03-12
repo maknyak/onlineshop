@@ -7,27 +7,21 @@
 
 <script>
 import { ProductService, ProductError } from '@/services/product.service'
-import { UserService, UserError } from '@/services/user.service'
+import { mapActions } from 'vuex'
+
 export default {
   methods: {
+    ...mapActions('auth', [
+      'logout'
+    ]),
+
+    onLogout: function () {
+      this.logout()
+    },
+
     onGetProduct: async function () {
       try {
         const res = await ProductService.getProduct()
-        console.log(res)
-      } catch (e) {
-        if (e instanceof ProductError) {
-          if (e.errorCode > 0) {
-            alert(`[warning][${e.errorCode}] ${e.message}`)
-          } else {
-            alert(`[danger][${e.errorCode}] ${e.message}`)
-          }
-        }
-      }
-    },
-
-    onLogout: async function () {
-      try {
-        const res = await UserService.getProduct()
         console.log(res)
       } catch (e) {
         if (e instanceof ProductError) {

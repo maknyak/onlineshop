@@ -28,7 +28,7 @@ const getters = {
 }
 
 const actions = {
-  async login ({ commit }, { email, password }) {
+  login: async function ({ commit }, { email, password }) {
     commit('loginRequest')
 
     try {
@@ -47,8 +47,9 @@ const actions = {
     }
   },
 
-  logout ({ commit }) {
-    UserService.logout()
+  logout: async function ({ commit }) {
+    const res = await UserService.logout()
+    console.log('logout', res)
     commit('logoutSuccess')
     router.push('/login')
   }

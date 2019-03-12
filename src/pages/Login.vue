@@ -2,6 +2,7 @@
   <div class="login">
     <div class="login-box">
       <h1>Login</h1>
+      <div class="alert alert-danger" v-if="authMsg">{{ authMsg }}</div>
       <form @submit.prevent="doLogin">
         <div class="form-group">
           <input type="text" class="form-control" name="email" id="email" placeholder="Email" v-model="email" v-validate="'required'">
@@ -11,7 +12,12 @@
           <input type="text" class="form-control" name="password" id="password" placeholder="Password" v-model="password" v-validate="'required'">
           <span>{{ errors.first('password') }}</span>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">
+          <span v-if="authProcess">
+            <b-spinner small /> Loading...
+          </span>
+          <span v-else>Login</span>
+        </button>
       </form>
     </div>
   </div>
@@ -19,9 +25,13 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import BSpinner from 'bootstrap-vue/es/components/spinner/spinner'
 
 export default {
   name: 'login',
+  components: {
+    BSpinner
+  },
   data () {
     return {
       email: '',
@@ -36,7 +46,7 @@ export default {
       'authenticationErrorCode'
     ]),
 
-    authErrorMsg () {
+    authMsg () {
       return this.authenticationError
     },
 
