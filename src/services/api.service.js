@@ -2,6 +2,16 @@ import axios from 'axios'
 import store from '@/store/index'
 import { TokenService } from '@/services/storage.service'
 
+class ApiError extends Error {
+  constructor (errorType, errorCode, message) {
+    super(message)
+    this.name = this.constructor.name
+    this.message = message
+    this.errorType = errorType
+    this.errorCode = errorCode
+  }
+}
+
 const ApiService = {
   _401interceptor: null,
 
@@ -76,7 +86,17 @@ const ApiService = {
   unmount401Interceptor () {
     // Eject the interceptor
     axios.interceptors.response.eject(this._401interceptor)
+  },
+
+  handleError (error) {
+    if (error.request.status > 0) {
+      const response = JSON.parse(error.request.response)
+      throw new ApiError('warning', response.status, response.message)
+    } else {
+      throw new ApiError('error', error.status, error.message)
+    }
   }
 }
 
 export default ApiService
+export { ApiService, ApiError }

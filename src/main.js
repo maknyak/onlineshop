@@ -8,7 +8,9 @@ import ApiService from './services/api.service'
 import { TokenService } from './services/storage.service'
 import axios from 'axios'
 import VeeValidate from 'vee-validate'
+import VueSweetalert2 from 'vue-sweetalert2'
 
+Vue.use(VueSweetalert2)
 Vue.use(VeeValidate, {
   classes: true,
   classNames: {

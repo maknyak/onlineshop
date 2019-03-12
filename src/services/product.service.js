@@ -1,14 +1,5 @@
 import ApiService from './api.service'
 
-class ProductError extends Error {
-  constructor (errorCode, message) {
-    super(message)
-    this.name = this.constructor.name
-    this.message = message
-    this.errorCode = errorCode
-  }
-}
-
 const ProductService = {
   getProduct: async function () {
     try {
@@ -18,18 +9,10 @@ const ProductService = {
       }
 
       throw response.data.data
-    } catch (error => this.handleError(error))
-  },
-
-  handleError: function (error) {
-    if (error.request.status > 0) {
-      const response = JSON.parse(error.request.response)
-      throw new ProductError(response.status, response.message)
-    } else {
-      throw new ProductError(error.status, error.message)
+    } catch (error) {
+      ApiService.handleError(error)
     }
   }
 }
 
 export default ProductService
-export { ProductService, ProductError }

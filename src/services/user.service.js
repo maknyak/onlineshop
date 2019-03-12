@@ -43,13 +43,6 @@ const UserService = {
     }
   },
 
-  // logout () {
-  //   TokenService.removeToken()
-  //   ApiService.removeHeader()
-
-  //   ApiService.unmount401Interceptor()
-  // }
-
   logout: async function () {
     try {
       const response = await ApiService.post('/auth/secure/logout')
