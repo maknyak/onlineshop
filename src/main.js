@@ -12,6 +12,7 @@ import VueSweetalert2 from 'vue-sweetalert2'
 
 Vue.use(VueSweetalert2)
 Vue.use(VeeValidate, {
+  fieldsBagName: 'formFields',
   classes: true,
   classNames: {
     valid: 'is-valid',

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './pages/Home.vue'
+import Order from './pages/Order.vue'
 import Login from './pages/Login.vue'
 import { TokenService } from './services/storage.service'
 
@@ -14,7 +14,7 @@ const router = new Router({
       path: '/',
       name: 'home',
       meta: { layout: 'admin' },
-      component: Home
+      component: Order
     },
     {
       path: '/login',
