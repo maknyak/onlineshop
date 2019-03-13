@@ -22,6 +22,10 @@ export default {
       type: Array,
       required: true
     },
+    page: {
+      type: Number,
+      required: true
+    },
     perPage: {
       type: Number,
       required: true
@@ -82,6 +86,7 @@ export default {
               props: {
                 totalRows: this.totalRows,
                 perPage: this.perPage,
+                value: this.page,
                 prevText: 'Sebelumnya',
                 nextText: 'Selanjutnya',
                 hideGotoEndButtons: true
@@ -102,8 +107,11 @@ export default {
 
     onChangeSize: function (size) {
       this.$parent.size = size
-      this.$parent.page = 1
-      this.fetch()
+      this.onChangePage(1)
+    },
+
+    onExport: function () {
+      console.log(this.$parent)
     },
 
     onRefresh: function () {

@@ -13,11 +13,29 @@ const OrderService = {
         return response.data.data
       }
 
-      throw response.data.data
+      throw response
     } catch (error) {
       ApiService.handleError(error)
     }
-  }
+  },
+
+  getDetail: async function (id) {
+    try {
+      const requestData = {
+        url: `/order/detail/${id}`
+      }
+
+      const response = await ApiService.customRequest(requestData)
+      if (response.data.status === 200) {
+        return response.data.data
+      }
+
+      throw response
+    } catch (error) {
+      ApiService.handleError(error)
+    }
+  },
+
 }
 
 export default OrderService

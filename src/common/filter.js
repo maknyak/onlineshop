@@ -25,3 +25,20 @@ export function substring (text, length = '50') {
 
   return '-'
 }
+
+export function convertKB (value) {
+  let result = 0
+  if (value !== '') {
+    result = value / 1024
+  }
+
+  return parseFloat(Math.round(result * 100) / 100).toFixed(2) + ' KB'
+}
+
+export function unit (val, suffix = '', prefix = '') {
+  if (!val) {
+    return ' - '
+  }
+
+  return prefix + val + suffix
+}
