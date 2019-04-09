@@ -52,6 +52,12 @@ const actions = {
     console.log('logout', res)
     commit('logoutSuccess')
     router.push('/login')
+  },
+
+  forceLogout ({ commit }) {
+    UserService.forceLogout()
+    router.push('/login')
+    commit('logoutSuccess')
   }
 }
 

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Order from './pages/Order.vue'
-import Login from './pages/Login.vue'
+import Admin from './layouts/Admin'
+import Order from './pages/Order'
+import Login from './pages/Login'
 import { TokenService } from './services/storage.service'
 
 Vue.use(Router)
@@ -12,9 +13,15 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      meta: { layout: 'admin' },
-      component: Order
+      name: 'Admin',
+      redirect: '/Order',
+      component: Admin,
+      children: [
+        {
+          path: '/Order',
+          component: Order
+        }
+      ]
     },
     {
       path: '/login',

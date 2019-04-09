@@ -12,7 +12,7 @@
           <input type="text" class="form-control" name="password" id="password" placeholder="Password" v-model="password" v-validate="'required'">
           <span>{{ errors.first('password') }}</span>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-warning font-weight-bold">
           <span v-if="authProcess">
             <b-spinner small /> Loading...
           </span>

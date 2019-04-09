@@ -34,8 +34,7 @@ const OrderService = {
     } catch (error) {
       ApiService.handleError(error)
     }
-  },
-
+  }
 }
 
 export default OrderService

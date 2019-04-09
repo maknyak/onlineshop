@@ -79,11 +79,11 @@ $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
   (
-    "primary":    $warning, // edit - $primary,
+    "primary":    $primary,
     "secondary":  $secondary,
     "success":    $success,
     "info":       $info,
-    "warning":    $primary, // edit - $warning,
+    "warning":    $warning,
     "danger":     $danger,
     "light":      $light,
     "dark":       $dark
@@ -275,14 +275,14 @@ $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberati
 $font-family-base:            $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
-$font-size-base:              0.875rem; // edit - 1rem !default; // Assumes the browser default, typically `16px`
-$font-size-xxl:               $font-size-base * 1.5 !default;
+$font-size-base:              0.875rem; // @maknyakedit - 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-xxl:               $font-size-base * 1.5 !default; // @maknyakedit
 $font-size-xl:                $font-size-base * 1.375 !default;
 $font-size-lg:                $font-size-base * 1.25 !default;
-// - edit
+// - @maknyakedit@maknyakedit
 $font-size-md:                $font-size-base * 1.125 !default;
 $font-size-sm:                $font-size-base * .875 !default;
-// - edit 
+// - @maknyakedit
 $font-size-xs:                $font-size-base * .75 !default;
 
 $font-weight-lighter:         lighter !default;
@@ -791,9 +791,9 @@ $pagination-padding-y-sm:           .25rem !default;
 $pagination-padding-x-sm:           .5rem !default;
 $pagination-padding-y-lg:           .75rem !default;
 $pagination-padding-x-lg:           1.5rem !default;
-$pagination-line-height:            1.25 !default;
+$pagination-line-height:            0.875; // @maknyakedit 1.25 !default;
 
-$pagination-color:                  $body-color; // edit - $link-color !default;
+$pagination-color:                  $body-color; // @maknyakedit - $link-color !default;
 $pagination-bg:                     $white !default;
 $pagination-border-width:           $border-width !default;
 $pagination-border-color:           $gray-300 !default;
@@ -801,12 +801,12 @@ $pagination-border-color:           $gray-300 !default;
 $pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
 $pagination-focus-outline:          0 !default;
 
-$pagination-hover-color:            $body-color; // edit - $link-hover-color !default;
+$pagination-hover-color:            $body-color; // @maknyakedit - $link-hover-color !default;
 $pagination-hover-bg:               $gray-200 !default;
 $pagination-hover-border-color:     $gray-300 !default;
 
-$pagination-active-color:           $body-color; // edit - $component-active-color !default;
-$pagination-active-bg:              $component-active-bg !default;
+$pagination-active-color:           $body-color; // @maknyakedit - $component-active-color !default;
+$pagination-active-bg:              $warning; // @maknyakedit - $component-active-bg !default;
 $pagination-active-border-color:    $pagination-active-bg !default;
 
 $pagination-disabled-color:         $gray-600 !default;

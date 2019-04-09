@@ -2,8 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store/index'
-import Admin from './layouts/Admin'
-import Default from './layouts/Default'
 import ApiService from './services/api.service'
 import { TokenService } from './services/storage.service'
 import axios from 'axios'
@@ -20,10 +18,9 @@ Vue.use(VeeValidate, {
   }
 })
 
-Vue.component('default-layout', Default)
-Vue.component('admin-layout', Admin)
 Vue.config.productionTip = false
 
+ApiService.mount401Interceptor()
 ApiService.init(process.env.VUE_APP_BASE_API)
 
 // If token exists set header

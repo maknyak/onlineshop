@@ -3,7 +3,7 @@
     <navbar></navbar>
     <sidebar></sidebar>
     <main class="main">
-      <slot/>
+      <router-view/>
     </main>
   </div>
 </template>
