@@ -1,0 +1,49 @@
+.sidebar {
+  border-right: 1px solid $sidebar-border-color;
+  background-color: $sidebar-bg;
+  height: 100vh;
+  left: -$sidebar-width;
+  padding-top: 70px;
+  position: fixed;
+  top: 0;
+  width: $sidebar-width;
+  z-index: 900;
+
+  @include media-breakpoint-up(lg) {
+    left: 0;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    > li {
+      border-right: 2px solid transparent;
+      
+      > a {
+        color: $body-color;
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        
+        > i {
+          margin-right: 15px;
+        }
+
+        &:hover {
+          background-color: $sidebar-hover-bg;
+        }
+      }
+    }
+  }
+}
+
+.main {
+  padding-left: 0;
+  margin-top: 70px;
+
+  @include media-breakpoint-up(lg) {
+    padding-left: $sidebar-width;
+  }
+}

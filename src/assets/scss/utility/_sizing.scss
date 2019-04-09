@@ -1,0 +1,65 @@
+// font 
+.font-xl {
+  font-size: $font-size-xl;
+}
+
+.font-lg {
+  font-size: $font-size-lg;
+}
+
+.font-md {
+  font-size: $font-size-md;
+}
+
+.font-base {
+  font-size: $font-size-base;
+}
+
+.font-sm {
+  font-size: $font-size-sm;
+}
+
+.font-xs {
+  font-size: $font-size-xs;
+}
+
+// heading
+.heading-1 {
+  font-size: $font-size-xxl !important;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.heading-2 {
+  font-size: $font-size-xl !important;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.heading-3 {
+  font-size: $font-size-lg !important;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.heading-4 {
+  font-size: $font-size-md !important;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.heading-5 {
+  font-size: $font-size-base !important;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.heading-6 {
+  font-size: $font-size-sm !important;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+// width
+.width-100 {
+  min-width: 100px;
+}
+
+.width-80 {
+  min-width: 80px;
+}
